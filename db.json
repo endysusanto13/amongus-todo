@@ -159,6 +159,11 @@
       "id": 32,
       "text": "Upload Data",
       "type": "long"
+    },
+    {
+      "text": "Developer Tool",
+      "type": "short",
+      "id": 33
     }
   ]
 }
