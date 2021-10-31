@@ -4,14 +4,14 @@ on:
     branches:
       - 'master'
 jobs:
-  build:
+  build-scan:
     runs-on: ubuntu-latest
     steps: 
       -
         name: Checkout
         uses: actions/checkout@v2
       - 
-        name: Build and push Docker images
+        name: Build without push Docker images
         uses: docker/build-push-action@v2.7.0
         with:
           context: .
@@ -24,10 +24,4 @@ jobs:
         with:
           image: week3-devtools:latest
           args: --severity-threshold=high
-      - name: Sucess notification
-        if: ${{ success() }}
-        run: echo "Security check is successful"
-      - name: Exit if failure
-        if: ${{ failure() }}
-        run: echo "Security check has failed" && exit 1
 
