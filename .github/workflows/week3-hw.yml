@@ -23,3 +23,12 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           image: week3-devtools:latest
+          args: --severity-threshold=high
+      - name: Sucess notification
+        if: ${{ success() }}
+        run: echo "Security check is successful"
+      - name: Exit if failure
+        if: ${{ failure() }}
+        run: echo "Security check has failed"
+        run: exit 1
+
