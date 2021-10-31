@@ -10,3 +10,13 @@ jobs:
       - 
         name: Build and push Docker images
         uses: docker/build-push-action@v2.7.0
+
+  security:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - 
+        name: Run Snyk to check Docker image for vulnerabilities
+        uses: snyk/actions/docker@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
