@@ -1,4 +1,16 @@
-FROM node:16.13.0-bullseye-slim
+FROM ubuntu:20.04
+
+RUN apt-get update
+# install curl 
+RUN apt-get install -y curl
+# get install script and pass it to execute: 
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash
+# and install node 
+RUN apt-get install -y nodejs
+# confirm that it was successful 
+RUN node -v
+# npm installs automatically 
+RUN npm -v
 
 WORKDIR /usr/src/app
 
