@@ -29,6 +29,5 @@ jobs:
         run: echo "Security check is successful"
       - name: Exit if failure
         if: ${{ failure() }}
-        run: echo "Security check has failed"
-        run: exit 1
+        run: echo "Security check has failed" && exit 1
 
