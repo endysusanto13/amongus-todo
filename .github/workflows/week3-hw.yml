@@ -21,7 +21,7 @@ jobs:
         uses: docker/build-push-action@v2.7.0
         with:
           context: .
-          # load: true
+          load: true
           tags: week3-devtools:latest
       - 
         name: Run Snyk to check Docker image for vulnerabilities
