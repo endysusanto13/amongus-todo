@@ -72,7 +72,7 @@ jobs:
         username: ${{ secrets.AWS_USERNAME }}
         key: ${{ secrets.AWS_KEY }}
         port: ${{ secrets.AWS_SSH_PORT }}
-        script_stop: true
+        # script_stop: true
         script: |
           sudo apt-get update -y
           sudo apt-get install -y\
