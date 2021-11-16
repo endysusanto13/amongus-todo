@@ -75,7 +75,7 @@ jobs:
         script_stop: true
         script: |
           whoami
-          ls -al
+          docker container ls
           
 
   # deploy:

@@ -63,9 +63,21 @@ resource "aws_security_group" "ingress-one-only" {
   vpc_id = aws_vpc.this.id
 
   ingress {
-    cidr_blocks = ["180.129.87.181/32", "20.106.72.79/0"]
+    cidr_blocks = ["180.129.87.181/32", "20.0.0.0/8"]
     from_port = 22
     to_port = 22
+    protocol = "tcp"
+  }
+  ingress {
+    cidr_blocks = ["180.129.87.181/32", "20.0.0.0/8"]
+    from_port = 80
+    to_port = 80
+    protocol = "tcp"
+  }
+  ingress {
+    cidr_blocks = ["180.129.87.181/32", "20.0.0.0/8"]
+    from_port = 443
+    to_port = 443
     protocol = "tcp"
   }
 
