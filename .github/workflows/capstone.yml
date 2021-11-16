@@ -49,18 +49,33 @@ jobs:
   #         push: true
   #         tags: ${{ secrets.DOCKERHUB_USERNAME }}/capstone-devtools:latest
 
-  check-ip:
+  ssh:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Public IP
-      id: ip
-      uses: haythem/public-ip@v1.2
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.AWS_HOST }}
+        username: ${{ secrets.AWS_USERNAME }}
+        key: ${{ secrets.AWS_KEY }}
+        port: ${{ secrets.AWS_SSH_PORT }}
+        script_stop: true
+        script: |
+          whoami
+          ls -al
 
-    - name: Print Public IP
-      run: |
-        echo ${{ steps.ip.outputs.ipv4 }}
-        echo ${{ steps.ip.outputs.ipv6 }}
+  # check-ip:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #   - name: Public IP
+  #     id: ip
+  #     uses: haythem/public-ip@v1.2
+
+  #   - name: Print Public IP
+  #     run: |
+  #       echo ${{ steps.ip.outputs.ipv4 }}
+  #       echo ${{ steps.ip.outputs.ipv6 }}
 
   # deploy:
   #   runs-on: ubuntu-latest
