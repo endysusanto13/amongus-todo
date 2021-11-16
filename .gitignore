@@ -1,3 +1,13 @@
+# Keys
+capstone-devtools.json
+
+# Terraform
+terraform/.terraform
+terraform/.terraform.lock.hcl
+terraform/local.terraform.tfstate
+terraform/.local.terraform.tfstate.lock.info
+terraform/local.terraform.tfstate.backup
+
 # Logs
 logs
 *.log
