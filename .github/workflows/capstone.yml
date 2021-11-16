@@ -74,7 +74,7 @@ jobs:
         port: ${{ secrets.AWS_SSH_PORT }}
         # script_stop: true
         script: |
-          docker run -d --restart always -p 80:3000 ${{ secrets.DOCKERHUB_USERNAME }}/capstone-devtools:latest
+          docker run -d --restart always -p 80:8080 ${{ secrets.DOCKERHUB_USERNAME }}/capstone-devtools:latest
 
   # sudo apt-get update -y
   # sudo apt-get install -y\
