@@ -67,7 +67,7 @@ jobs:
     needs: [check-ip]
     steps:
     - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@v0.1.4
+      uses: appleboy/ssh-action@
       with:
         host: ${{ secrets.AWS_HOST }}
         username: ${{ secrets.AWS_USERNAME }}
