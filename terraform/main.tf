@@ -80,6 +80,12 @@ resource "aws_security_group" "ingress-one-only" {
     to_port = 443
     protocol = "tcp"
   }
+  ingress {
+    cidr_blocks = ["180.129.87.181/32", "20.0.0.0/8"]
+    from_port = 8080
+    to_port = 8080
+    protocol = "tcp"
+  }
 
   egress {
    from_port = 0
