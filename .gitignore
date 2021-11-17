@@ -102,3 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Terraform
+terraform/local.terraform.tfstate.backup
+terraform/local.terraform.tfstate
+terraform/.terraform/terraform.tfstate
+terraform/.terraform/providers/registry.terraform.io/hashicorp/aws/3.65.0/linux_amd64/terraform-provider-aws_v3.65.0_x5
+terraform/.terraform.lock.hcl
