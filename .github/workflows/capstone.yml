@@ -51,7 +51,7 @@ jobs:
 
   check-ip:
     runs-on: ubuntu-latest
-
+    needs: [build-scan-push]
     steps:
     - name: Public IP
       id: ip
@@ -64,6 +64,7 @@ jobs:
 
   ssh:
     runs-on: ubuntu-latest
+    needs: [check-ip]
     steps:
     - name: executing remote ssh commands using password
       uses: appleboy/ssh-action@v0.1.4
